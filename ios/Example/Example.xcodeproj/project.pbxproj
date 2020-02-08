@@ -13,7 +13,23 @@
 		03C0CF1523EEFDCA00C9491C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C0CF1323EEFDCA00C9491C /* Main.storyboard */; };
 		03C0CF1723EEFDCB00C9491C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03C0CF1623EEFDCB00C9491C /* Assets.xcassets */; };
 		03C0CF1A23EEFDCB00C9491C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C0CF1823EEFDCB00C9491C /* LaunchScreen.storyboard */; };
+		03C0CF2323EEFF7900C9491C /* SharedCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C0CF2223EEFF7900C9491C /* SharedCode.framework */; };
+		03C0CF2423EEFF7900C9491C /* SharedCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03C0CF2223EEFF7900C9491C /* SharedCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		03C0CF2523EEFF7900C9491C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				03C0CF2423EEFF7900C9491C /* SharedCode.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		03C0CF0A23EEFDCA00C9491C /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +40,7 @@
 		03C0CF1623EEFDCB00C9491C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03C0CF1923EEFDCB00C9491C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03C0CF1B23EEFDCB00C9491C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03C0CF2223EEFF7900C9491C /* SharedCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SharedCode.framework; path = "../../SharedCode/build/xcode-frameworks/SharedCode.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03C0CF2323EEFF7900C9491C /* SharedCode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +60,7 @@
 			children = (
 				03C0CF0C23EEFDCA00C9491C /* Example */,
 				03C0CF0B23EEFDCA00C9491C /* Products */,
+				03C0CF2123EEFF7900C9491C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +86,14 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
+		03C0CF2123EEFF7900C9491C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03C0CF2223EEFF7900C9491C /* SharedCode.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,6 +104,7 @@
 				03C0CF0623EEFDCA00C9491C /* Sources */,
 				03C0CF0723EEFDCA00C9491C /* Frameworks */,
 				03C0CF0823EEFDCA00C9491C /* Resources */,
+				03C0CF2523EEFF7900C9491C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -286,6 +314,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 23SNN8KHW7;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../SharedCode/build/xcode-frameworks";
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,6 +333,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 23SNN8KHW7;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../SharedCode/build/xcode-frameworks";
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

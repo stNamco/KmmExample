@@ -101,6 +101,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03C0CF1E23EEFDCB00C9491C /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
+				03C0CF2623EF006600C9491C /* Run Script - generate shared framework */,
 				03C0CF0623EEFDCA00C9491C /* Sources */,
 				03C0CF0723EEFDCA00C9491C /* Frameworks */,
 				03C0CF0823EEFDCA00C9491C /* Resources */,
@@ -160,6 +161,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03C0CF2623EF006600C9491C /* Run Script - generate shared framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script - generate shared framework";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncd \"../..\"\n./gradlew :SharedCode:packForXCode -PXCODE_CONFIGURATION=${CONFIGURATION}\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		03C0CF0623EEFDCA00C9491C /* Sources */ = {

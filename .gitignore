@@ -39,6 +39,8 @@ hs_err_pid*
 .externalNativeBuild
 .cxx
 
+!/gradle/wrapper/gradle-wrapper.jar
+
 
 ### iOS
 # Xcode

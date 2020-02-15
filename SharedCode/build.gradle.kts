@@ -4,6 +4,12 @@ plugins {
     kotlin("multiplatform")
 }
 
+dependencies {
+    commonTestImplementation("junit:junit:4.12")
+    commonTestImplementation("org.jetbrains.kotlin:kotlin-test")
+    commonTestImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+}
+
 kotlin {
     //select iOS target platform depending on the Xcode environment variables
     val iOSTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
@@ -59,3 +65,17 @@ val packForXcode by tasks.creating(Sync::class) {
 }
 
 tasks.getByName("build").dependsOn(packForXcode)
+
+tasks.register("iosTest")  {
+    val device = project.findProperty("iosDevice") as? String ?: "iPhone 8"
+    dependsOn("linkDebugTestIos")
+    group = JavaBasePlugin.VERIFICATION_GROUP
+    description = "Runs tests for target 'ios' on an iOS simulator"
+
+    doLast {
+        val  binary = (kotlin.targets["ios"] as KotlinNativeTarget).binaries.getTest("DEBUG").outputFile
+        exec {
+            commandLine("xcrun", "simctl", "spawn", "--standalone", device, binary.absolutePath)
+        }
+    }
+}

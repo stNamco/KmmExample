@@ -1,7 +1,29 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
+    id( "com.android.library")
     kotlin("multiplatform")
+}
+
+android {
+    compileSdkVersion(29)
+    defaultConfig {
+        minSdkVersion(19)
+    }
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+}
+
+dependencies {
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7")
+
+    commonTestImplementation("junit:junit:4.12")
+    commonTestImplementation("org.jetbrains.kotlin:kotlin-test")
+    commonTestImplementation("org.jetbrains.kotlin:kotlin-test-junit")
 }
 
 kotlin {
@@ -20,7 +42,7 @@ kotlin {
         }
     }
 
-    jvm("android")
+    android("android")
 
     sourceSets["commonMain"].dependencies {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
@@ -30,6 +52,12 @@ kotlin {
         implementation("org.jetbrains.kotlin:kotlin-stdlib")
     }
 }
+
+//tasks {
+//    named<Test>("test") {
+//        testLogging.exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+//    }
+//}
 
 val packForXcode by tasks.creating(Sync::class) {
     val targetDir = File(buildDir, "xcode-frameworks")
@@ -59,3 +87,17 @@ val packForXcode by tasks.creating(Sync::class) {
 }
 
 tasks.getByName("build").dependsOn(packForXcode)
+
+tasks.register("iosTest")  {
+    val device = project.findProperty("iosDevice") as? String ?: "iPhone 8"
+    dependsOn("linkDebugTestIos")
+    group = JavaBasePlugin.VERIFICATION_GROUP
+    description = "Runs tests for target 'ios' on an iOS simulator"
+
+    doLast {
+        val  binary = (kotlin.targets["ios"] as KotlinNativeTarget).binaries.getTest("DEBUG").outputFile
+        exec {
+            commandLine("xcrun", "simctl", "spawn", "--standalone", device, binary.absolutePath)
+        }
+    }
+}

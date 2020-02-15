@@ -5,7 +5,7 @@
     <key>CFBundleExecutable</key>
     <string>SharedCode</string>
     <key>CFBundleIdentifier</key>
-    <string>com.stnamco.example.SharedCode</string>
+    <string>com.stnamco.shared.SharedCode</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>

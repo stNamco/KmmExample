@@ -1,5 +1,7 @@
-package com.stnamco.example
+package com.stnamco.shared
 
-actual fun platformName(): String {
-    return "Android"
+actual class Platform actual constructor() {
+    actual fun platformName(): String {
+        return "Android"
+    }
 }

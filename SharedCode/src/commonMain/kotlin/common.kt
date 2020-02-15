@@ -1,7 +1,9 @@
-package com.stnamco.example
+package com.stnamco.shared
 
-expect fun platformName(): String
+expect class Platform() {
+    fun platformName(): String
+}
 
-fun createApplicationScreenMessage() : String {
-    return "Kotlin Rocks on ${platformName()}"
+class Greeting {
+    fun greeting(): String = "Hello, ${Platform().platformName()}"
 }

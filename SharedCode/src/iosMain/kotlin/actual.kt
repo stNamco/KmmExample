@@ -1,4 +1,4 @@
-package com.stnamco.example
+package com.stnamco
 
 import platform.UIKit.UIDevice
 

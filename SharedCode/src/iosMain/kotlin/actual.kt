@@ -1,9 +1,9 @@
-package com.stnamco
+package com.stnamco.shared
 
 import platform.UIKit.UIDevice
 
-actual fun platformName(): String {
-    return UIDevice.currentDevice.systemName() +
-            " " +
-            UIDevice.currentDevice.systemVersion
+actual class Platform actual constructor() {
+    actual fun platformName(): String {
+        return UIDevice.currentDevice.systemName()
+    }
 }

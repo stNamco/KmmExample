@@ -1,4 +1,4 @@
-package com.stnamco
+package com.stnamco.shared
 
 import kotlin.test.Test
 import kotlin.test.assertEquals

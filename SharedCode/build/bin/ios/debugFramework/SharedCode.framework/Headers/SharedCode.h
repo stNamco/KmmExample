@@ -147,15 +147,35 @@ __attribute__((swift_name("KotlinBoolean")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("CommonKt")))
-@interface SharedCodeCommonKt : KotlinBase
-+ (NSString *)createApplicationScreenMessage __attribute__((swift_name("createApplicationScreenMessage()")));
+__attribute__((swift_name("Calculator")))
+@interface SharedCodeCalculator : KotlinBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ActualKt")))
-@interface SharedCodeActualKt : KotlinBase
-+ (NSString *)platformName __attribute__((swift_name("platformName()")));
+__attribute__((swift_name("Calculator.Companion")))
+@interface SharedCodeCalculatorCompanion : KotlinBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+- (int32_t)sumA:(int32_t)a b:(int32_t)b __attribute__((swift_name("sum(a:b:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Greeting")))
+@interface SharedCodeGreeting : KotlinBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (NSString *)greeting __attribute__((swift_name("greeting()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Platform")))
+@interface SharedCodePlatform : KotlinBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (NSString *)platformName __attribute__((swift_name("platformName()")));
 @end;
 
 #pragma clang diagnostic pop

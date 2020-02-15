@@ -53,12 +53,6 @@ kotlin {
     }
 }
 
-//tasks {
-//    named<Test>("test") {
-//        testLogging.exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
-//    }
-//}
-
 val packForXcode by tasks.creating(Sync::class) {
     val targetDir = File(buildDir, "xcode-frameworks")
 

@@ -7,6 +7,6 @@ open class CommonTest {
 
     @Test
     fun testSum() {
-        assertEquals(4, 4)
+        assertEquals(4, Calculator.sum(1,3))
     }
 }

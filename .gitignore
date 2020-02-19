@@ -36,7 +36,6 @@ hs_err_pid*
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 .DS_Store
-/build
 /captures
 .externalNativeBuild
 .cxx
@@ -50,7 +49,6 @@ hs_err_pid*
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ## Build generated
-build/
 DerivedData/
 
 ## Various settings
@@ -62,8 +60,9 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-xcuserdata/
-*.xcuserstate
+/build/
+*.xcworkspace
+xcuserdata
 
 ## Other
 *.moved-aside
@@ -87,7 +86,7 @@ playground.xcworkspace
 # Packages/
 # Package.pins
 # Package.resolved
-.build/
+
 
 # CocoaPods
 #

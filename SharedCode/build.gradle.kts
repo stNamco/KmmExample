@@ -21,7 +21,7 @@ android {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7")
 
-    commonTestImplementation("junit:junit:4.12")
+    commonTestImplementation("junit:junit:4.13")
     commonTestImplementation("org.jetbrains.kotlin:kotlin-test")
     commonTestImplementation("org.jetbrains.kotlin:kotlin-test-junit")
 }

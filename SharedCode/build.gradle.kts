@@ -27,7 +27,8 @@ dependencies {
 }
 
 kotlin {
-    //select iOS target platform depending on the Xcode environment variables
+    android("android")
+
     val iOSTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
         if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
             ::iosArm64
@@ -41,8 +42,6 @@ kotlin {
             }
         }
     }
-
-    android("android")
 
     sourceSets["commonMain"].dependencies {
 
@@ -82,16 +81,16 @@ val packForXcode by tasks.creating(Sync::class) {
 
 tasks.getByName("build").dependsOn(packForXcode)
 
-tasks.register("iosTest")  {
-    val device = project.findProperty("iosDevice") as? String ?: "iPhone 8"
-    dependsOn("linkDebugTestIos")
-    group = JavaBasePlugin.VERIFICATION_GROUP
-    description = "Runs tests for target 'ios' on an iOS simulator"
-
-    doLast {
-        val  binary = (kotlin.targets["ios"] as KotlinNativeTarget).binaries.getTest("DEBUG").outputFile
-        exec {
-            commandLine("xcrun", "simctl", "spawn", "--standalone", device, binary.absolutePath)
-        }
-    }
-}
+//tasks.register("iosTest")  {
+//    val device = project.findProperty("iosDevice") as? String ?: "iPhone 8"
+//    dependsOn("linkDebugTestIos")
+//    group = JavaBasePlugin.VERIFICATION_GROUP
+//    description = "Runs tests for target 'ios' on an iOS simulator"
+//
+//    doLast {
+//        val  binary = (kotlin.targets["ios"] as KotlinNativeTarget).binaries.getTest("DEBUG").outputFile
+//        exec {
+//            commandLine("xcrun", "simctl", "spawn", "--standalone", device, binary.absolutePath)
+//        }
+//    }
+//}

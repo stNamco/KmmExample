@@ -27,6 +27,10 @@ dependencies {
 }
 
 kotlin {
+
+    val coroutinesVersion = "1.3.9-native-mt"
+    val serializationVersion = "1.0.0-RC"
+
     android("android")
 
     ios {
@@ -38,7 +42,8 @@ kotlin {
     }
 
     sourceSets["commonMain"].dependencies {
-
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
     }
 
     sourceSets["androidMain"].dependencies {

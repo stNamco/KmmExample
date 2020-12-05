@@ -44,6 +44,10 @@ kotlin {
     sourceSets["androidMain"].dependencies {
 
     }
+
+    sourceSets["iosMain"].dependencies {
+
+    }
 }
 
 val packForXcode by tasks.creating(Sync::class) {

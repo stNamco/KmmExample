@@ -29,13 +29,7 @@ dependencies {
 kotlin {
     android("android")
 
-    val iOSTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
-        if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
-            ::iosArm64
-        else
-            ::iosX64
-
-    iOSTarget("ios") {
+    ios {
         binaries {
             framework {
                 baseName = "SharedCode"
@@ -59,8 +53,10 @@ val packForXcode by tasks.creating(Sync::class) {
     /// framework depending on the environment
     /// variables set by Xcode build
     val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
+    val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
+    val targetName = "ios" + if (sdkName.startsWith("iphoneos")) "Arm64" else "X64"
     val framework = kotlin.targets
-        .getByName<KotlinNativeTarget>("ios")
+        .getByName<KotlinNativeTarget>(targetName)
         .binaries.getFramework(mode)
     inputs.property("mode", mode)
     dependsOn(framework.linkTask)

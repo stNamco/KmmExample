@@ -1,2 +1,2 @@
 # MppExample
-for techbookfest8
+書籍向けのrepository

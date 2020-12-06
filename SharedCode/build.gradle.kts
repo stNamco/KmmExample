@@ -1,3 +1,4 @@
+import com.android.build.gradle.internal.tasks.factory.dependsOn
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
@@ -88,3 +89,10 @@ val packForXcode by tasks.creating(Sync::class) {
 }
 
 tasks.getByName("build").dependsOn(packForXcode)
+
+tasks.register("dumpGeneratedSharedCodePath")  {
+    val targetDir = File(buildDir, "bin")
+    doLast {
+        println("$targetDir")
+    }
+}.dependsOn("build")

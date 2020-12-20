@@ -1,2 +1,2 @@
-# MppExample
+# CppExample
 書籍向けのrepository

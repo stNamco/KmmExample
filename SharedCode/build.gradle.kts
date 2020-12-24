@@ -96,3 +96,17 @@ tasks.register("dumpGeneratedSharedCodePath")  {
         println("$targetDir")
     }
 }.dependsOn("build")
+
+tasks.register("iosSimulatorTest")  {
+    val device = project.findProperty("iosDevice") as? String ?: "iPhone 8"
+    dependsOn("iosX64Test")
+    group = JavaBasePlugin.VERIFICATION_GROUP
+    description = "Runs tests for target 'ios' on an iOS simulator"
+
+    doLast {
+        val  binary = (kotlin.targets["iosX64"] as KotlinNativeTarget).binaries.getTest("DEBUG").outputFile
+        exec {
+            commandLine("xcrun", "simctl", "spawn", "--standalone", device, binary.absolutePath)
+        }
+    }
+}

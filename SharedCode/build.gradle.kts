@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 plugins {
     id( "com.android.library")
     kotlin("multiplatform")
+    kotlin("native.cocoapods")
 }
 
 android {
@@ -27,6 +28,9 @@ dependencies {
     commonTestImplementation("org.jetbrains.kotlin:kotlin-test-junit")
 }
 
+// CocoaPods requires the podspec to have a version.
+version = "1.0"
+
 kotlin {
 
     val ktorVersion = "1.4.0"
@@ -35,12 +39,14 @@ kotlin {
 
     android("android")
 
-    ios {
-        binaries {
-            framework {
-                baseName = "SharedCode"
-            }
-        }
+    ios()
+
+    cocoapods {
+        ios.deploymentTarget = "13.5"
+        summary = "CocoaPods test library"
+        homepage = "https://github.com/JetBrains/kotlin"
+
+        pod("SVProgressHUD")
     }
 
     sourceSets["commonMain"].dependencies {

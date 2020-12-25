@@ -46,7 +46,9 @@ kotlin {
         summary = "CocoaPods test library"
         homepage = "https://github.com/JetBrains/kotlin"
 
-        pod("SVProgressHUD")
+        pod("AFNetworking") {
+            version = "~> 4.0.1"
+        }
     }
 
     sourceSets["commonMain"].dependencies {

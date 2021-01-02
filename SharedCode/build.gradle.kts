@@ -43,19 +43,25 @@ kotlin {
         }
     }
 
-    sourceSets["commonMain"].dependencies {
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
-        implementation("io.ktor:ktor-client-core:$ktorVersion")
-        implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+    val commonMain by sourceSets.getting {
+        dependencies {
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
+            implementation("io.ktor:ktor-client-core:$ktorVersion")
+            implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+        }
     }
 
-    sourceSets["androidMain"].dependencies {
-        implementation("io.ktor:ktor-client-android:$ktorVersion")
+    val androidMain by sourceSets.getting {
+        dependencies {
+            implementation("io.ktor:ktor-client-android:$ktorVersion")
+        }
     }
 
-    sourceSets["iosMain"].dependencies {
-        implementation("io.ktor:ktor-client-ios:$ktorVersion")
+    val iosMain by sourceSets.getting {
+        dependencies {
+            implementation("io.ktor:ktor-client-ios:$ktorVersion")
+        }
     }
 }
 

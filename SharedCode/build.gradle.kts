@@ -33,7 +33,7 @@ kotlin {
     val coroutinesVersion = "1.3.9-native-mt"
     val serializationVersion = "1.0.0-RC"
 
-    android("android")
+    android()
 
     ios {
         binaries {

@@ -335,7 +335,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 23SNN8KHW7;
+				DEVELOPMENT_TEAM = 69X695F46U;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../SharedCode/build/xcode-frameworks";
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -354,7 +354,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 23SNN8KHW7;
+				DEVELOPMENT_TEAM = 69X695F46U;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../SharedCode/build/xcode-frameworks";
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

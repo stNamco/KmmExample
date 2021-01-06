@@ -10,7 +10,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;po &quot;test&quot;&#10;&#10;cd &quot;../..&quot;&#10;./gradlew :SharedCode:packForXcode -PXCODE_CONFIGURATION=${CONFIGURATION}&#10;">
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;&#10;# project&#x306e;path&#x306b;&#x5fdc;&#x3058;&#x3066;&#x5909;&#x66f4;&#10;cd &quot;$SRCROOT/../..&quot;&#10;# gradle&#x306e;&#x8a2d;&#x5b9a;&#x306b;&#x5fdc;&#x3058;&#x3066;&#x5909;&#x66f4;&#10;./gradlew :SharedCode:packForXcode -PXCODE_CONFIGURATION=${CONFIGURATION}&#10;&#10;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
